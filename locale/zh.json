@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DevTools 浏览器",
+    "description": "让模型启动带原版 Chromium DevTools 的外部 Edge/Chrome，通过 Chrome DevTools Protocol 连接并操控、检查页面。不占用侧边栏入口。"
+  }
+}

@@ -1,0 +1,5 @@
+# DSH bundle patch: one Host row that registers the browser tools and the
+# agent-devtools-browser skill. No Client half and no sidebar entry.
+- insert:
+    - id: agent-devtools-browser
+      name: agent-devtools-browser

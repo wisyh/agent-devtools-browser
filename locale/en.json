@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DevTools browser",
+    "description": "Lets the agent launch an external Edge/Chrome with the real Chromium DevTools open, connect over the Chrome DevTools Protocol, and drive or inspect the page. No sidebar entry."
+  }
+}

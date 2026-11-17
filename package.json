@@ -1,0 +1,70 @@
+{
+  "name": "agent-devtools-browser",
+  "version": "0.1.0",
+  "description": "Real Chromium DevTools for AI agents: launch Edge/Chrome, connect over CDP, drive and inspect pages. Ships an MCP server, a portable Agent Skill, a CLI, and an optional DSH adapter.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Wisyh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wisyh/agent-devtools-browser.git"
+  },
+  "homepage": "https://github.com/wisyh/agent-devtools-browser#readme",
+  "bugs": {
+    "url": "https://github.com/wisyh/agent-devtools-browser/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "agent-devtools-browser": "./bin/agent-devtools-browser.mjs",
+    "agent-devtools-browser-mcp": "./bin/mcp.mjs"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./core": "./src/index.mjs",
+    "./mcp": "./src/mcp.mjs",
+    "./skill": "./skill/SKILL.md",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin",
+    "src",
+    "adapters",
+    "skill",
+    "examples",
+    "locale",
+    "index.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "AGENTS.md",
+    "real-devtools-elements.png"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "mcp": "node ./bin/mcp.mjs",
+    "dev": "node ./bin/agent-devtools-browser.mjs"
+  },
+  "keywords": [
+    "ai-agents",
+    "agent-skills",
+    "browser-automation",
+    "cdp",
+    "chrome-devtools",
+    "devtools",
+    "mcp",
+    "model-context-protocol",
+    "playwright-alternative",
+    "web-scraping"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
