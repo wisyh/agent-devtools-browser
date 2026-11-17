@@ -2,20 +2,7 @@
 
 ## MCP server
 
-Create `.cursor/mcp.json` in the project (or use the global MCP settings):
-
-```json
-{
-  "mcpServers": {
-    "agent-devtools-browser": {
-      "command": "npx",
-      "args": ["-y", "agent-devtools-browser", "mcp"]
-    }
-  }
-}
-```
-
-From a checkout:
+Create `.cursor/mcp.json` in the project (or use the global MCP settings). The npm package is not published yet, so use a checkout:
 
 ```json
 {

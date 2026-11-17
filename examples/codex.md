@@ -2,15 +2,7 @@
 
 ## MCP server
 
-`~/.codex/config.toml`:
-
-```toml
-[mcp_servers.agent-devtools-browser]
-command = "npx"
-args = ["-y", "agent-devtools-browser", "mcp"]
-```
-
-From a checkout, use:
+The npm package is not published yet, so use a checkout. `~/.codex/config.toml`:
 
 ```toml
 [mcp_servers.agent-devtools-browser]

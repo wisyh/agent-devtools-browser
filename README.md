@@ -40,24 +40,26 @@ Zero npm runtime dependencies.
 
 ## Quick start
 
-### 1. Run the MCP server
+### 1. Get a checkout
+
+The npm package is not published yet, so run the server from a clone:
 
 ```bash
-npx -y agent-devtools-browser mcp
-```
-
-Or from a checkout:
-
-```bash
+git clone https://github.com/wisyh/agent-devtools-browser.git
+cd agent-devtools-browser
 node ./bin/mcp.mjs
 ```
 
+The MCP server speaks stdio JSON-RPC, so running it directly is only a smoke test. Configure your agent as shown below.
+
 ### 2. Connect your agent
+
+Use an absolute path to `bin/mcp.mjs`. The `npx` form will work after the package is published.
 
 **Claude Code**
 
 ```bash
-claude mcp add agent-devtools-browser -- npx -y agent-devtools-browser mcp
+claude mcp add agent-devtools-browser -- node /absolute/path/to/agent-devtools-browser/bin/mcp.mjs
 ```
 
 **Claude Desktop / Cursor / Windsurf / Cline** (`claude_desktop_config.json` or `.cursor/mcp.json`):
@@ -66,8 +68,8 @@ claude mcp add agent-devtools-browser -- npx -y agent-devtools-browser mcp
 {
   "mcpServers": {
     "agent-devtools-browser": {
-      "command": "npx",
-      "args": ["-y", "agent-devtools-browser", "mcp"]
+      "command": "node",
+      "args": ["/absolute/path/to/agent-devtools-browser/bin/mcp.mjs"]
     }
   }
 }
@@ -77,8 +79,8 @@ claude mcp add agent-devtools-browser -- npx -y agent-devtools-browser mcp
 
 ```toml
 [mcp_servers.agent-devtools-browser]
-command = "npx"
-args = ["-y", "agent-devtools-browser", "mcp"]
+command = "node"
+args = ["/absolute/path/to/agent-devtools-browser/bin/mcp.mjs"]
 ```
 
 **VS Code** (`.vscode/mcp.json`):
@@ -88,8 +90,8 @@ args = ["-y", "agent-devtools-browser", "mcp"]
   "servers": {
     "agent-devtools-browser": {
       "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "agent-devtools-browser", "mcp"]
+      "command": "node",
+      "args": ["/absolute/path/to/agent-devtools-browser/bin/mcp.mjs"]
     }
   }
 }
@@ -105,7 +107,7 @@ Copy [`skill/`](skill/) into your agent's skills directory, for example:
 - Project-scoped: `.claude/skills/agent-devtools-browser/`
 - Other agents: point them at `skill/SKILL.md` or paste its body into the agent's instructions.
 
-The skill assumes the `browser` and `browser_devtools` tools exist. If they do not, install the MCP server first.
+The skill assumes the `browser` and `browser_devtools` tools exist. If they do not, install the MCP server first. MCP clients may prefix tool names with the server name (for example `mcp__agent_devtools_browser__browser`); the base names are `browser` and `browser_devtools`.
 
 ### 4. Use it
 

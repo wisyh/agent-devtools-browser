@@ -64,8 +64,9 @@ async function openCommand(url) {
     if (url) await browser.navigate(url);
     else await browser.send('Page.bringToFront').catch(() => {});
     const status = await browser.status();
-    await writeSession({ port: status.port, pid: existing.pid || null, targetId: status.active, browser: status.browser });
-    print(status);
+    const browserName = status.browser || existing.browser || null;
+    await writeSession({ port: status.port, pid: existing.pid || null, targetId: status.active, browser: browserName });
+    print({ ...status, pid: existing.pid || status.pid || null, browser: browserName });
     browser.detach();
     return;
   }
@@ -141,8 +142,9 @@ export async function runCli(argv = process.argv.slice(2)) {
       await closeCommand();
       return;
     case 'status': {
-      const { browser } = await attachBrowser();
-      print(await browser.status());
+      const { browser, session } = await attachBrowser();
+      const status = await browser.status();
+      print({ ...status, pid: session.pid || status.pid || null, browser: status.browser || session.browser || null });
       browser.dispose();
       return;
     }

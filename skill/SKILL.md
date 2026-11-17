@@ -14,7 +14,7 @@ This skill needs the **`agent-devtools-browser` MCP server** (or its CLI). It ex
 - `browser` — launch/focus the browser, navigate, snapshot the DOM, click, type, wait, and manage tabs.
 - `browser_devtools` — evaluate JavaScript, extract structured data, inspect CSS, read CDP-captured console/network, read or write storage, take a screenshot, and inspect performance.
 
-If those tools are not available, tell the user to install this MCP server (see the repository README) before continuing.
+If those tools are not available, tell the user to install this MCP server (see the repository README) before continuing. MCP clients may prefix tool names with the server name (for example `mcp__agent_devtools_browser__browser`); the base names are `browser` and `browser_devtools`.
 
 The browser is a real Edge/Chrome window with the **real, unmodified Chromium DevTools** opened automatically. There is no custom DevTools panel to open. The user can watch the page and DevTools while you work.
 

@@ -2,10 +2,12 @@
 
 ## MCP server
 
+The npm package is not published yet, so point the client at a checkout.
+
 Claude Code:
 
 ```bash
-claude mcp add agent-devtools-browser -- npx -y agent-devtools-browser mcp
+claude mcp add agent-devtools-browser -- node /absolute/path/to/agent-devtools-browser/bin/mcp.mjs
 ```
 
 Claude Desktop (`claude_desktop_config.json`):
@@ -14,14 +16,14 @@ Claude Desktop (`claude_desktop_config.json`):
 {
   "mcpServers": {
     "agent-devtools-browser": {
-      "command": "npx",
-      "args": ["-y", "agent-devtools-browser", "mcp"]
+      "command": "node",
+      "args": ["/absolute/path/to/agent-devtools-browser/bin/mcp.mjs"]
     }
   }
 }
 ```
 
-From a checkout, replace the command with `node` and the args with the absolute path to `bin/mcp.mjs`.
+After publishing, the same config can use `npx -y agent-devtools-browser mcp`.
 
 ## Skill
 

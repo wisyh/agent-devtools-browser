@@ -1,20 +1,6 @@
 # VS Code (MCP)
 
-Create `.vscode/mcp.json`:
-
-```json
-{
-  "servers": {
-    "agent-devtools-browser": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "agent-devtools-browser", "mcp"]
-    }
-  }
-}
-```
-
-From a checkout:
+Create `.vscode/mcp.json`. The npm package is not published yet, so use a checkout:
 
 ```json
 {
